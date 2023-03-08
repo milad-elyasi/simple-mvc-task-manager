@@ -1,0 +1,299 @@
+{
+	"info": {
+		"_postman_id": "78d32daf-cff7-4b02-bb1d-fa12078285b9",
+		"name": "SabaIdea",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "1216357"
+	},
+	"item": [
+		{
+			"name": "list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"tasks"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "list",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/api/tasks",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"api",
+								"tasks"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 01:38:47 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.0"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"status\": 200,\n    \"data\": [\n        {\n            \"id\": 10,\n            \"title\": \"test\",\n            \"status\": 2,\n            \"starting_date\": \"2023-03-08 05:07:07\",\n            \"ending_date\": \"2023-03-08 05:07:07\",\n            \"user_id\": 2,\n            \"name\": \"Ali\"\n        },\n        {\n            \"id\": 9,\n            \"title\": \"New Date\",\n            \"status\": 2,\n            \"starting_date\": \"2023-03-08 04:02:09\",\n            \"ending_date\": \"2023-03-11 04:02:00\",\n            \"user_id\": 1,\n            \"name\": \"Milad\"\n        },\n        {\n            \"id\": 8,\n            \"title\": \"Test User\",\n            \"status\": 1,\n            \"starting_date\": \"2023-03-08 04:01:05\",\n            \"ending_date\": \"2023-03-08 04:01:05\",\n            \"user_id\": 2,\n            \"name\": \"Ali\"\n        },\n        {\n            \"id\": 7,\n            \"title\": \"kharid\",\n            \"status\": 1,\n            \"starting_date\": \"2023-03-08 05:07:00\",\n            \"ending_date\": \"2023-03-08 05:07:00\",\n            \"user_id\": 1,\n            \"name\": \"Milad\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/tasks/delete?id=7",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"tasks",
+						"delete"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "7"
+						}
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "delete",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8010/api/tasks/delete?id=7",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"api",
+								"tasks",
+								"delete"
+							],
+							"query": [
+								{
+									"key": "id",
+									"value": "7"
+								}
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "html",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 01:45:51 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "text/html; charset=UTF-8"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		},
+		{
+			"name": "store",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "hey task",
+							"type": "text"
+						},
+						{
+							"key": "starting_date",
+							"value": "2023-03-25",
+							"type": "text"
+						},
+						{
+							"key": "ending_date",
+							"value": "2023-04-01",
+							"type": "text"
+						},
+						{
+							"key": "user",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "status",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8010/api/tasks/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"tasks",
+						"store"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "store",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "hey task",
+									"type": "text"
+								},
+								{
+									"key": "starting_date",
+									"value": "2023-03-25",
+									"type": "text"
+								},
+								{
+									"key": "ending_date",
+									"value": "2023-04-01",
+									"type": "text"
+								},
+								{
+									"key": "user",
+									"value": "1",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8010/api/tasks/store",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8010",
+							"path": [
+								"api",
+								"tasks",
+								"store"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Server",
+							"value": "nginx/1.23.1"
+						},
+						{
+							"key": "Date",
+							"value": "Wed, 08 Mar 2023 01:48:32 GMT"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Transfer-Encoding",
+							"value": "chunked"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "X-Powered-By",
+							"value": "PHP/8.1.0"
+						}
+					],
+					"cookie": [],
+					"body": null
+				}
+			]
+		}
+	]
+}

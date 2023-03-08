@@ -1,0 +1,66 @@
+version: "3.9"
+
+services:
+    
+    
+    ## --------------------------------------------------
+    ## | Backend - webserver service
+    ## --------------------------------------------------
+    tasks_webserver:
+        image: nginx:1.23.1
+        container_name: tasks_webserver
+        restart: unless-stopped
+        ports:
+            - "8010:80"
+        volumes:
+            - ./:/var/www
+            - ./.docker/tasks_webserver/conf.d:/etc/nginx/conf.d
+        depends_on:
+            - tasks_backend
+        networks:
+            - tasks-network
+    
+    ## --------------------------------------------------
+    ## | Backend - Php service
+    ## --------------------------------------------------
+    tasks_backend:
+        build:
+            args:
+                user: tasks-user
+                uid: 1000
+            context: .
+            dockerfile: .docker/tasks_backend/Dockerfile
+        container_name: tasks_backend
+        restart: unless-stopped
+        tty: true
+        volumes:
+            - ./:/var/www
+            - ./.docker/tasks_backend/config/php.ini:/usr/local/etc/php/php.ini
+        networks:
+            - tasks-network
+    ## --------------------------------------------------
+    ## | Mysql - Database service
+    ## --------------------------------------------------
+    tasks_mysql:
+        container_name: tasks-mysql
+        hostname: tasks-mysql
+        build:
+            context: .docker/tasks_mysql
+            dockerfile: Dockerfile
+        environment:
+            MYSQL_DATABASE: tasks
+            MYSQL_USER: taskUser
+            MYSQL_PASSWORD: taskPass
+            MYSQL_ROOT_PASSWORD: taskPass
+        ports:
+            - "3309:3306"
+        volumes:
+            - .docker/tasks_mysql/data:/var/lib/mysql
+        restart: always
+        networks:
+            tasks-network:
+
+networks:
+    tasks-network:
+        driver: bridge
+
