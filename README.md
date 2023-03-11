@@ -12,7 +12,7 @@ ________________
     composer install
 
 3- use web:
-    localhost:8000
+    localhost:80100
 
 
 ## docs:
